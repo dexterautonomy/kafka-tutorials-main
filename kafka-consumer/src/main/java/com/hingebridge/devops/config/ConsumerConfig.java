@@ -13,7 +13,14 @@ public class ConsumerConfig {
     @Bean
     public Consumer<KStream<String, Employee>> newDevopsConsume(){
         return stream -> stream.foreach((key, value) ->
-            System.out.println("--->> Consumer: " + value + " successfully consumed")
+            System.out.println("--->> New Devops Staff: " + value + " successfully consumed")
+        );
+    }
+
+    @Bean
+    public Consumer<KStream<String, Employee>> newAccountsConsume(){
+        return stream -> stream.foreach((key, value) ->
+                System.out.println("--->> New Accounts Staff: " + value + " successfully consumed")
         );
     }
 }

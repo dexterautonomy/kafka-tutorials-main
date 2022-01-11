@@ -13,7 +13,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Override
     public void registerNew(Employee employee) {
-        System.out.println("--->> Sending to devops topic: " + employee);
-        kafka.send("devops", employee);
+        System.out.println("--->> Sending to devops topic 'new_staff': " + employee);
+        kafka.send("new_staff", employee);
     }
 }

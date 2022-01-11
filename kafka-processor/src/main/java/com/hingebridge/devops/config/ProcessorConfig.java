@@ -13,8 +13,16 @@ public class ProcessorConfig {
     @Bean
     public Function<KStream<String, Employee>, KStream<String, Employee>> newDevops(){
         return kstream -> kstream.filter((key, value) -> {
-            System.out.println("--->> Processing: " + value);
+            System.out.println("--->> Processing New Devops Staff: " + value);
             return value.getDept() == Employee.Department.DEVOPS;
+        });
+    }
+
+    @Bean
+    public Function<KStream<String, Employee>, KStream<String, Employee>> newAccounts(){
+        return kstream -> kstream.filter((key, value) -> {
+            System.out.println("--->> Processing New Accounts Staff: " + value);
+            return value.getDept() == Employee.Department.ACCOUNTS;
         });
     }
 }
